@@ -1,0 +1,990 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #e3f2fd;
+  display: flex;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 160px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  height: 100%;
+  width: 260px;
+  padding: 60px 0;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+nav.open .sidebar {
+  left: 0;
+}
+
+/* Show sidebar on desktop */
+@media screen and (min-width: 768px) {
+  
+  .sidebar {
+    left: 0;
+  }
+
+  /* Adjust main content to prevent overlap */
+  .main {
+    margin-left: 260px;
+  }
+
+  /* Hide menu icon on desktop */
+  .menu-icon {
+    display: none;
+  }
+}
+
+/* Sidebar Content */
+.sidebar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 16px;
+}
+
+.list {
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #707070;
+  padding-top: 20%;
+}
+
+.lists .nav-link:hover {
+  background-color: #4070f4;
+  color: #fff;
+}
+
+.nav-link .icon {
+  margin-right: 14px;
+  font-size: 20px;
+}
+.main {
+    margin-left: 260px; /* Push content to the right */
+    padding: 8% 5% 5%;
+    width: calc(100% - 260px);
+    transition: margin-left 0.4s ease;
+    background: #f4f4f4;
+    min-height: 100vh; /* Ensure full height */
+  }
+  
+  /* Wrapper for Containers */
+  /* Center Profile */
+.profile-container {
+  height: 100%;
+  max-width: 100%;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* 🔹 Profile Header */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* 🔹 Profile Picture (Bigger & Centered) */
+.profile-pic {
+  width: 180px;  /* Increased Size */
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 5px solid #4070f4; /* Blue Border */
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔹 Profile Info */
+.profile-info h2 {
+  margin: 0;
+  font-size: 26px; /* Bigger Name */
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.profile-info i {
+  margin-right: 5px;
+  color: #4070f4;
+}
+
+/* 🔹 Fixing the Issue of Blue Backgrounds */
+.profile-info p,
+.profile-info a {
+  background: none !important;
+  padding: 0 !important;
+  display: block;
+}
+
+/* 🔹 Profile Sections */
+.profile-section {
+  padding: 20px 0;
+  text-align: left;
+}
+
+.profile-section h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  background: #4070f4;  /* Blue Heading */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* 🔹 List Styles */
+.accomplished-list,
+.achievements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.accomplished-list li,
+.achievements-list li {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.accomplished-list li i,
+.achievements-list li i {
+  font-size: 22px;
+  color: #4070f4;
+  margin-right: 12px;
+}
+
+/* 🔹 Responsive Design */
+@media screen and (max-width: 768px) {
+  .profile-container {
+      width: 90%;
+  }
+
+  .profile-pic {
+      width: 140px;
+      height: 140px;
+  }
+}
+
+  
+  /* Individual Containers */
+  .container {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+
+/* Overlay for Mobile */
+@media screen and (max-width: 767px) {
+/* Overlay to cover everything when sidebar opens */
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    pointer-events: none; /* Prevent clicks */
+    z-index: 999; /* Ensure it’s above everything */
+  }
+  
+  /* Show overlay when sidebar is open */
+  nav.open ~ .overlay {
+    left: 0;
+    pointer-events: auto; /* Allow clicks to close */
+  }
+  
+  /* Ensure .logo is also covered */
+  nav.open .logo {
+    z-index: 0; /* Push behind overlay */
+  }
+  .main {
+    margin-left: 0; /* Reset on mobile when sidebar is hidden */
+    width: 100%;
+    margin-top: 10%;
+  }
+  .container-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 90%;
+  }
+  }
+
+/* Sidebar Logo */
+/* Logo Container */
+.logo {
+    position: relative; /* Allows absolute positioning inside */
+    width: 100%; /* Full width */
+    height: 155px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Menu Icon Inside .logo */
+  .menu-icon {
+    position: absolute;
+    bottom: 5px;  /* Distance from bottom */
+    left: 5px;    /* Distance from left */
+    font-size: 24px; /* Icon size */
+    color: white; /* Icon color */
+    cursor: pointer;
+  }
+  
+  .logo .menu-icon {
+    font-size: 30px; /* Adjust icon size */
+    color: #4070f4;
+  }
+  
+  .logo-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4070f4;
+    text-align: center;
+  }
+  
+  /* Push Navigation Links Below */
+  .nav-links {
+    flex-grow: 1; /* Pushes other content down */
+    width: 100%;
+  }
+    
+  .menu-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  
+  .logo-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4070f4;
+    letter-spacing: 1px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .logo {
+      justify-content: center; /* Center logo for mobile */
+    }
+  
+    .logo-name {
+      font-size: 18px;
+    }
+  }
+  
+/* Adjusted header styling */
+.header {
+    width: 100%;
+    height: 90px;
+    background-color: #4d75ec;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    flex-direction: column;
+  }
+  
+  /* Logo in Header */
+  .header-logo {
+    height: 50px;
+    width: auto;
+    border-radius: 8px;
+  }
+  
+  /* Title in Header */
+  .header-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  /* Bottom part of the header */
+  .header-bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 5px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .menu-icon {
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 10px;
+  }
+  
+  .menu-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .logo-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Adjusted main content */
+  .main {
+    margin-left: 260px;
+    padding: 10% 5% 5%;
+    width: calc(100% - 260px);
+    transition: margin-left 0.4s ease;
+    background: #f4f4f4;
+    min-height: 100vh;
+    margin-top: 90px; /* Adjust for new header size */
+  }
+  
+  /* Responsive for mobile */
+  @media screen and (max-width: 768px) {
+    .header {
+      height: auto;
+      flex-direction: column;
+      text-align: center;
+      padding: 15px;
+    }
+  
+    .header-bottom {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .menu-icon {
+      font-size: 22px;
+    }
+  
+    .logo-name {
+      font-size: 16px;
+    }
+  
+    .main {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 150px;
+    }
+  }
+  
+
+  
+  /* ✅ Make main content grow to push footer down */
+  .main {
+    flex-grow: 1;
+    padding-bottom: 50px; /* Space for footer */
+  }
+  
+  /* ✅ Sidebar should not overlap content */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh; /* Full height */
+    width: 250px; /* Adjust width */
+    background: #f8f9fa; /* Light background */
+    padding-top: 20px;
+    z-index: 1000; /* Ensure it stays above content */
+  }
+  
+  /* ✅ Ensure the content area does not overlap */
+  .content {
+    margin-left: 250px; /* Same as sidebar width */
+    padding: 20px;
+  }
+  
+  /* Ensure the body takes full height and uses flexbox */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make sure main content area grows to push footer down */
+.main {
+  flex-grow: 1; /* Pushes footer down */
+  padding-bottom: 50px; /* Space so content doesn’t touch footer */
+}
+
+
+/* Footer (Fixed at Bottom) */
+.footer {
+  background: #4d75ec;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design (Stack Sidebar & Content on Small Screens) */
+@media (max-width: 768px) {
+  .sidebar, .main {
+    float: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .footer {
+    position: relative; /* Let it flow naturally */
+  }
+}
+
+
+
+/* Profile Overview Section */
+.profile-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.profile-card .profile-header {
+  background-color: #f8f9fa;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-card .profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+  border: 3px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card .user-info h2.user-name {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.profile-card .user-info p.user-details {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.profile-card .user-info p.user-details span {
+  margin-right: 15px;
+}
+
+.profile-card .user-info p.user-details i {
+  margin-right: 5px;
+}
+
+.profile-card .profile-body {
+  padding: 25px;
+}
+
+.profile-card .contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-card .contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.profile-card .contact-info li i {
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+/* Your Progress Section */
+.progress-section {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+.progress-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.progress-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.progress-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-card .icon-wrapper {
+  background-color: rgba(0, 123, 255, 0.1); /* Blue accent */
+  color: #007bff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.progress-card.coins .icon-wrapper {
+  background-color: rgba(255, 193, 7, 0.1); /* Yellow accent */
+  color: #ffc107;
+}
+
+.progress-card .progress-info {
+  flex-grow: 1;
+}
+
+.progress-card .progress-info .label {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.progress-card .progress-info .value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.progress-card .progress-info .progress-bar-container {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  height: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-card .progress-info .progress-bar {
+  background-color: #007bff;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.progress-card.coins .progress-info .progress-bar {
+  background-color: #ffc107;
+}
+
+.progress-card.coins .progress-info .coin-icon {
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+  /*container*/
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 15px; /* Add margin to create spacing between cards */
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.row.g-3 {
+  gap: 20px; /* Add gap between rows and columns */
+}
+.card {
+  position: relative;
+  background: linear-gradient(135deg, #f9f9f9, #fff); /* Subtle diagonal gradient */
+  border-radius: 12px; /* Slightly more rounded */
+  padding: 25px; /* Increased padding */
+  width: 100%;
+  color: #333;
+  margin: 0 auto;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+  transition: transform 0.2s ease-in-out; /* Add subtle hover effect */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.corner-deco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px; /* Slightly larger */
+  height: 60px;
+  clip-path: polygon(100% 0, 0% 0%, 100% 100%);
+  border-top-right-radius: 12px;
+}
+
+h5.card-title {
+  font-size: 1.1rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+h5.card-title i {
+  margin-right: 8px;
+}
+
+h1 {
+  font-size: 1.8rem; /* More prominent title */
+  line-height: 1.4;
+  margin-bottom: 15px;
+  text-align: left;
+  color: #222;
+}
+
+p {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: left;
+  margin-bottom: 10px;
+  line-height: 1.6; /* Improved readability */
+}
+
+p span {
+  color: #007bff;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+  position: relative;
+  bottom: auto;
+  right: auto;
+}
+
+.icons i {
+  color: #444;
+  font-size: 26px; /* Slightly larger icons */
+}
+
+/* Purchased Cards Section (Horizontal Scroll) */
+.purchased-cards-section {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.purchased-cards-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.purchased-cards-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding-bottom: 15px; /* Add some padding for the scrollbar */
+}
+
+.purchased-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px; /* Minimum width for each card */
+}
+
+.purchased-card:hover {
+  transform: translateY(-5px);
+}
+
+.purchased-card .card-header {
+  background-color: var(--card-color);
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.purchased-card .card-header i {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.purchased-card .card-header h4 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.purchased-card .card-body {
+  padding: 20px;
+}
+
+.purchased-card .card-body .description {
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.purchased-card .card-body .user-details {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.purchased-card .card-body .user-details li {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.purchased-card .card-body .user-details li i {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.purchased-card .card-body .tech-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 1.5rem;
+  color: #999;
+}
+
+/* Static Achievements Section (Kept as Grid) */
+.static-achievements-section {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.static-achievements-section h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.static-achievements-section .achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.static-achievements-section .achievement-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.static-achievements-section .achievement-card:hover {
+  transform: translateY(-5px);
+}
+
+.static-achievements-section .achievement-card .card-icon {
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  color: #777;
+}
+
+.static-achievements-section .achievement-card.static .card-icon {
+  color: inherit; /* Inherit color from text */
+}
+
+.static-achievements-section .achievement-card h3 {
+  padding: 15px 20px;
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.static-achievements-section .achievement-card p {
+  padding: 15px 20px;
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.empty-state {
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+      /* Style for the level color legend */
+      .level-legend-section {
+          background-color: #fff;
+          padding: 25px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+          margin-bottom: 30px;
+      }
+
+      .level-legend-section h3 {
+          font-size: 1.5rem;
+          color: #333;
+          margin-top: 0;
+          margin-bottom: 15px;
+          border-bottom: 2px solid #eee;
+          padding-bottom: 10px;
+      }
+
+      .rarity-row {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 10px;
+      }
+
+      .rarity-label {
+          font-weight: bold;
+          color: #555;
+          width: 120px; /* Adjust width as needed */
+      }
+
+      .color-item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          margin-right: 15px;
+      }
+
+      .color-box {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border-radius: 3px;
+          border: 1px solid #ccc;
+      }
+
+      .color-name {
+          font-size: 0.9em;
+          color: #777;
+      }
